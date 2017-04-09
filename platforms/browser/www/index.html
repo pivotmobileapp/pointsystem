@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/onsenui/js/onsenui.min.js"></script>
+    <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/intlTelInput.css" rel="stylesheet" type="text/css" />
+    <script src="lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/intlTelInput.js"></script>
+    <script src="js/jquery.form-validator.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
+
+
+</head>
+
+<body>
+    <ons-navigator title="Navigator" var="myNavigator">
+        <ons-page>
+            <div style="text-align: center">
+                <img class="logos" src="image/logo.png" alt="">
+                <div class="clear m_t60"></div>
+                <div class='square-box' onclick="myNavigator.pushPage('add.html', { animation : 'slide' } )">
+                    <div class='square-content'>
+                        <div><span>ADD Manually</span></div>
+                    </div>
+                </div>
+                <div class='square-box2' onclick="myNavigator.pushPage('redeem.html', { animation : 'slide' } )">
+                    <div class='square-content2'>
+                        <div><span>REDEEM Manually</span></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <br>
+                <ons-button class="goto" modifier="light" onclick=" initIntelInputs()">
+                    Create New Customer
+                </ons-button>
+                <br>
+                <br>
+                <ons-button class="goto" modifier="light" onclick="lookUp()">
+                    Lookup Users Points
+                </ons-button>
+            </div>
+            
+        </ons-page>
+    </ons-navigator>
+    <!--------------------------------------ADD Manually--------------------------------------------------------------->
+    <ons-template id="add.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Back</ons-back-button>
+                </div>
+                <div class="center"> Manually</div>
+            </ons-toolbar>
+            <section>
+                <div style="text-align: center; margin-top: 60px;">
+                    <p class="sucPoint"></p>
+                    <p>
+                        <label for="" class="lab">Enter Customer ID</label>
+                    </p>
+                    <p>
+                        <ons-input id="addcast" type="text" float></ons-input>
+                    </p>
+                    <p>
+                        <label for="" class="lab">Enter Points</label>
+                    </p>
+                    <p>
+                        <ons-input id="addpoints" type="text" float></ons-input>
+                    </p>
+                    <p>
+                        <ons-button onclick="addPoint()" class="addred" modifier="light">ADD
+                        </ons-button>
+                    </p>
+                </div>
+            </section>
+        </ons-page>
+    </ons-template>
+    <!--------------------------------------REDEEM Manually--------------------------------------------------------------->
+    <ons-template id="redeem.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Back</ons-back-button>
+                </div>
+                <div class="center"> Manually</div>
+            </ons-toolbar>
+            <section>
+                <div style="text-align: center; margin-top: 60px;">
+                    <p class="sucPointexp"></p>
+                    <p>
+                        <label for="" class="lab">Enter Customer ID</label>
+                    </p>
+                    <p>
+                        <ons-input id="redeemcast" type="text" float></ons-input>
+                    </p>
+                    <p>
+                        <label for="" class="lab">Enter Points</label>
+                    </p>
+                    <p>
+                        <ons-input id="redeempoints" type="text" float></ons-input>
+                    </p>
+                    <p>
+                        <ons-button onclick="addPointexp()" class="addred" modifier="light">Redeem
+                        </ons-button>
+                    </p>
+                </div>
+            </section>
+        </ons-page>
+    </ons-template>
+    <!--------------------------------------Create New Customer----------------------------------------------------------->
+    <ons-template id="create.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Back</ons-back-button>
+                </div>
+                <div class="center">Create Customer</div>
+            </ons-toolbar>
+
+ <!--------------------------------------REG FORM----------------------------------------------------------->
+            <form id="frm-signup" class="frm-signup" method="post">
+                <input type="hidden" name="next_step" value="return_home">
+                <div class="wrapper">
+                    <div class="field-wrapper">
+                        <input type="text" name="first_name" class="first_name text-input text-input--underbar has_validation" placeholder="First Name" value="" data-validation="required" data-validation-error-msg="this field is mandatory!">
+                    </div>
+
+                    <div class="field-wrapper">
+                        <input type="text" name="last_name" class="last_name text-input text-input--underbar has_validation" placeholder="Last Name" value="" data-validation="required" data-validation-error-msg="this field is mandatory!">
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="text" name="contact_phone" class="mobile_inputss contact_phone text-input text-input--underbar has_validation" placeholder="Mobile Phone" value="" data-validation="required" data-validation-error-msg="this field is mandatory!">
+                    </div>
+
+                    <div class="field-wrapper">
+                        <input type="email" name="email_address" class="email_address text-input text-input--underbar has_validation" placeholder="Email address" value="" data-validation="email" data-validation-error-msg="this field is mandatory!">
+                    </div>
+
+                    <div class="field-wrapper">
+                        <input type="password" name="password" class="password text-input text-input--underbar has_validation" placeholder="Password" value="" data-validation="required" data-validation-error-msg="this field is mandatory!">
+                    </div>
+
+                    <div class="field-wrapper">
+                        <input type="password" name="cpassword" class="cpassword text-input text-input--underbar has_validation" placeholder="Confirm Password" value="" data-validation="required" data-validation-error-msg="this field is mandatory!">
+                    </div>
+
+                    <div class="custom-fields-wrap" id="custom-fields-wrap">
+                    </div>
+
+                    <div class="field-wrapper iagree-wrap">
+                        <ons-row>
+                            <ons-col width="40px">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="iagree" class="iagree" value="1">
+                                    <div class="checkbox__checkmark"></div>
+                                    <span class="ons-checkbox-inner"></span>
+                                </label>
+                            </ons-col>
+                            <ons-col>
+                                <span class="trn small-font-dim top15 block" data-trn-key="terms_n_condition">I Agree To The Terms & Conditions</span>
+                            </ons-col>
+                        </ons-row>
+                    </div>
+                    <button class="trn button green-btn button--large" onclick="signup();" data-trn-key="create_account">
+                        Create Account
+                        <div class="search-btn">
+                            <ons-icon icon="fa-chevron-right"></ons-icon>
+                        </div>
+                    </button>
+
+                </div>
+
+            </form>
+<!--------------------------------------END REG FORM------------------------------------------------------------------>
+        </ons-page>
+    </ons-template>
+    <!--------------------------------------Lookup Users Points--------------------------------------------------------------->
+    <ons-template id="lookup.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-back-button>Back</ons-back-button>
+                </div>
+                <div class="center">User Look up</div>
+            </ons-toolbar>
+            <iframe src="http://fellybellyapp.com/pointsprogram/index/rewardpoints" width="100%" height="100%"></iframe>
+        </ons-page>
+    </ons-template>
+</body>
+
+</html>

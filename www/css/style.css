@@ -1,0 +1,120 @@
+.logos {
+    width: 60%;
+}
+
+.page__background {
+    background: #fff !important;
+}
+.goto{
+    width: 80%;
+    background: #89C30F;
+    color: #fff;
+    font-size: 20px;
+}
+.square-box {
+    position: relative;
+    width: 45%;
+    overflow: hidden;
+    background: #89C30F;
+    font-size: 24px;
+    float: left;
+    border-radius: 5px;
+    margin-left: 3.333%;
+}
+
+.square-box:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.square-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+}
+
+.square-content div {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.square-content span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white
+}
+
+
+/**/
+
+.square-box2 {
+    position: relative;
+    width: 45%;
+    overflow: hidden;
+    background: #89C30F;
+    font-size: 24px;
+    float: right;
+    border-radius: 5px;
+    margin-right: 3.333%;
+}
+
+.square-box2:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.square-content2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: white;
+}
+
+.square-content2 div {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.square-content2 span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white
+}
+
+.clear {
+    clear: both;
+}
+.back-button,.navigation-bar__title{
+    color: #fff;
+}
+.navigation-bar{
+  background:   #89C30F;
+}
+.m_t60{
+    margin-top:60px
+}
+#addcast,
+#addpoints,
+#redeemcast,
+#redeempoints{
+    border:1px solid #D7D7D7;
+}
+.addred{
+   background:   #89C30F;   
+   color:   #fff;
+    font-size: 20px;
+}
+.lab{
+    color:#0784BA;
+}
