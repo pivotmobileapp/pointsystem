@@ -5,9 +5,9 @@
     id        = "com.fellybellypoints"
     versionCode = "10.0"
     version   = "1.0.0">
-    <name>Fellybelly</name>
+    <name>Fellybelly Points</name>
     <description>
-        Felly Belly
+        Point Program
     </description>
     <author email="jupiter@pivotmobileapp.com" href="http://Fellybelly.com">
         Fellybelly.com
